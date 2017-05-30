@@ -13,12 +13,13 @@ Output:
  --------------------------- */
 
 function areaRectangle(length, width) {
-  return "No code yet";
+  return length*width;
 }
 console.log("Rectangle Area Calculator:");
+console.log(areaRectangle(10,20));
 /* Uncomment the following to check */
-  // console.log(areaRectangle(2, 7));
-  // console.log(areaRectangle(20, 56.5));
+   //console.log(areaRectangle(2, 7));
+   //console.log(areaRectangle(20, 56.5));
   // console.log(areaRectangle(50, 34));
 
 
@@ -44,12 +45,17 @@ HINT: Use substring()
  --------------------------- */
 
 function rotate_string(text) {
+  for (var i=0;i<text.length-1 ; i++)
+  {
+     text = text[text.length-1] + text.substring(0,text.length-1);
+  }
+
   console.log(text);
 }
 
 console.log("Rotate String:");
 /* Uncomment the following to check */
-  //rotate_string("cat");
+  rotate_string("tahmid");
   //rotate_string("voracious")
 
 
@@ -72,13 +78,19 @@ HINT: Use split() and substring()
  --------------------------- */
 
 function protect_email(email) {
-  return "protected email";
+  var temp = email.split('@');
+  var size = temp[0].length;
+  var temp3= email.substring(0,size/2);
+  var temp2 = email.substring(size,email.length);
+  temp = temp3 + '....' + temp2;
+
+  return temp;
 }
 
 console.log("Protected email:");
 /* Uncomment the following to check */
-  //console.log(protect_email("harry_potter@gmail.com"));
-  //console.log(protect_email("sarah.connor@gmail.com"));
+  console.log(protect_email("harry_potter@gmail.com"));
+  console.log(protect_email("sarah.connor@gmail.com"));
 
 
 
@@ -98,12 +110,15 @@ HINT: Use join(), split() and sort() functions
  --------------------------- */
 
 function alphabetic_order(word) {
-  return "rearranged word";
+  var splitting = word.split("");
+  var temp = splitting.sort();
+  var final = temp.join('');
+  return final;
 }
 
-console.log("Alphabetic Order:");
+  console.log('Spliited Word');
 /* Uncomment the following to check */
-  // console.log(alphabetic_order("webmaster"));
+   console.log(alphabetic_order("webmaster"));
 
 
 
@@ -123,6 +138,7 @@ Output:
  --------------------------- */
 
 function remove_duplicates(arr) {
+
   console.log("Duplicates removed from array");
 }
 
@@ -146,12 +162,20 @@ Output:
  --------------------------- */
 
 function dash_in_even(number) {
-  console.log("even numbers separated by dashes");
+  for(var i=0; i<number.length; i++)
+  {
+    if(number[i]%2==0)
+    {
+      var temp = number.substring(0,i);
+      number = temp+'_';
+    }
+  }
+  console.log(number);
 }
 
 console.log("Dash between Even Numbers:");
 /* Uncomment the following to check */
-  // dash_in_even(100);
+   dash_in_even(100);
   // dash_in_even(1356);
   // dash_in_even(246824);
   // dash_in_even(1324567824);
