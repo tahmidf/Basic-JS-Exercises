@@ -18,9 +18,9 @@ function areaRectangle(length, width) {
 console.log("Rectangle Area Calculator:");
 console.log(areaRectangle(10,20));
 /* Uncomment the following to check */
-   //console.log(areaRectangle(2, 7));
-   //console.log(areaRectangle(20, 56.5));
-  // console.log(areaRectangle(50, 34));
+   console.log(areaRectangle(2, 7));
+   console.log(areaRectangle(20, 56.5));
+   console.log(areaRectangle(50, 34));
 
 
 
@@ -56,7 +56,7 @@ function rotate_string(text) {
 console.log("Rotate String:");
 /* Uncomment the following to check */
   rotate_string("tahmid");
-  //rotate_string("voracious")
+  rotate_string("voracious")
 
 
 
@@ -138,13 +138,23 @@ Output:
  --------------------------- */
 
 function remove_duplicates(arr) {
+  //console.log(arr.length);
+  arr.sort();
 
-  console.log("Duplicates removed from array");
+  for(j=0;j<5;j++){
+    for(i=0;i<arr.length;i++){
+      if(arr[i]==arr[i+1]){
+        arr.splice(i,1);
+      }
+    }
+  }
+
+  console.log(arr);
 }
 
-console.log("Remove Duplicate Values:");
+  console.log("Remove Duplicate Values:");
 /* Uncomment the following to check */
-  // remove_duplicates([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]);
+   remove_duplicates([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]);
 
 
 /* ---------------------------
@@ -162,23 +172,29 @@ Output:
  --------------------------- */
 
 function dash_in_even(number) {
-  for(var i=0; i<number.length; i++)
+  var arr= number.toString();
+  var final = "";
+  var temp1 = "";
+  var temp2 = "";
+  for(var i=0; i<=arr.length-1; i++)
   {
-    if(number[i]%2==0)
-    {
-      var temp = number.substring(0,i);
-      number = temp+'_';
-    }
+      temp1 = arr[i];
+      temp2 = arr[i+1];
+      final = final + temp1;
+      if(temp1%2==0 && temp2%2==0)
+      {
+        final = final + "-";
+      }
   }
-  console.log(number);
+  console.log(final);
 }
 
 console.log("Dash between Even Numbers:");
 /* Uncomment the following to check */
    dash_in_even(100);
-  // dash_in_even(1356);
-  // dash_in_even(246824);
-  // dash_in_even(1324567824);
+   dash_in_even(1356);
+   dash_in_even(246824);
+   dash_in_even(1324567824);
 
 
 /* ---------------------------
@@ -195,11 +211,19 @@ HINT: Use Math.ceil() and Math.random()
 
 function guessing_game(guess) {
   // Get a random integer from 1 to 10 inclusive
-  console.log("matched or unmatched?");
+  var temp = Math.ceil((Math.random() * 10) + 1);;
+  if(temp==guess)
+  {
+      console.log("Suceess you have guessed it right!");
+  }
+  else {
+      console.log("Sorry you guessed it wrong");
+  }
+  //console.log(temp);
 }
 
 console.log("Guessing Game:");
 /* Uncomment the following to check */
-  // var guess = prompt('Guess the number between 1 and 10 inclusive');
-  // console.log("User guessed: "+ guess);
-  // guessing_game(guess);
+   var guess = prompt('Guess the number between 1 and 10 inclusive');
+   console.log("User guessed: "+ guess);
+   guessing_game(guess);
